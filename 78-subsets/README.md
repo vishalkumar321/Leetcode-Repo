@@ -1,44 +1,27 @@
-# 78. Subsets
+<h2><a href="https://leetcode.com/problems/subsets">Subsets</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an integer array <code>nums</code> of <strong>unique</strong> elements, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span> <em>(the power set)</em>.</p>
 
-## Problem Statement
+<p>The solution set <strong>must not</strong> contain duplicate subsets. Return the solution in <strong>any order</strong>.</p>
 
-Given an integer array nums of unique elements, return all possible subsets (the power set).
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-The solution set must not contain duplicate subsets. Return the solution in any order.
+<pre>
+<strong>Input:</strong> nums = [1,2,3]
+<strong>Output:</strong> [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+</pre>
 
-Example 1:
+<p><strong class="example">Example 2:</strong></p>
 
-Input: nums = [1,2,3]
-Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+<pre>
+<strong>Input:</strong> nums = [0]
+<strong>Output:</strong> [[],[0]]
+</pre>
 
-Example 2:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Input: nums = [0]
-Output: [[],[0]]
-
-Constraints:
-
-	1 <= nums.length <= 10
-	-10 <= nums[i] <= 10
-	All the numbers of nums are unique.
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[78. Subsets](https://leetcode.com/problems/subsets/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10</code></li>
+	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
+	<li>All the numbers of&nbsp;<code>nums</code> are <strong>unique</strong>.</li>
+</ul>
