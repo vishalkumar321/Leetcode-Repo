@@ -1,61 +1,53 @@
-# 94. Binary Tree Inorder Traversal
+<h2><a href="https://leetcode.com/problems/binary-tree-inorder-traversal">Binary Tree Inorder Traversal</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given the <code>root</code> of a binary tree, return <em>the inorder traversal of its nodes&#39; values</em>.</p>
 
-## Problem Statement
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-Given the root of a binary tree, return the inorder traversal of its nodes&#39; values.
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = [1,null,2,3]</span></p>
 
-Example 1:
+<p><strong>Output:</strong> <span class="example-io">[1,3,2]</span></p>
 
-Input: root = [1,null,2,3]
+<p><strong>Explanation:</strong></p>
 
-Output: [1,3,2]
+<p><img alt="" src="https://assets.leetcode.com/uploads/2024/08/29/screenshot-2024-08-29-202743.png" style="width: 200px; height: 264px;" /></p>
+</div>
 
-Explanation:
+<p><strong class="example">Example 2:</strong></p>
 
-Example 2:
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = [1,2,3,4,5,null,8,null,null,6,7,9]</span></p>
 
-Input: root = [1,2,3,4,5,null,8,null,null,6,7,9]
+<p><strong>Output:</strong> <span class="example-io">[4,2,6,5,7,1,3,9,8]</span></p>
 
-Output: [4,2,6,5,7,1,3,9,8]
+<p><strong>Explanation:</strong></p>
 
-Explanation:
+<p><img alt="" src="https://assets.leetcode.com/uploads/2024/08/29/tree_2.png" style="width: 350px; height: 286px;" /></p>
+</div>
 
-Example 3:
+<p><strong class="example">Example 3:</strong></p>
 
-Input: root = []
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = []</span></p>
 
-Output: []
+<p><strong>Output:</strong> <span class="example-io">[]</span></p>
+</div>
 
-Example 4:
+<p><strong class="example">Example 4:</strong></p>
 
-Input: root = [1]
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = [1]</span></p>
 
-Output: [1]
+<p><strong>Output:</strong> <span class="example-io">[1]</span></p>
+</div>
 
-Constraints:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-	The number of nodes in the tree is in the range [0, 100].
-	-100 <= Node.val <= 100
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
 
-Follow up: Recursive solution is trivial, could you do it iteratively?
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Easy*
-
-## LeetCode Link
-
-[94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?
