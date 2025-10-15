@@ -26,7 +26,7 @@ public:
     int next() {
         TreeNode* temp = s.top();
         s.pop();
-        pushAllLeft(temp->right);
+        if(temp->right) pushAllLeft(temp->right);
         return temp->val;
     }
     
