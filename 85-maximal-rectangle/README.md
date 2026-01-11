@@ -1,49 +1,34 @@
-# 85. Maximal Rectangle
+<h2><a href="https://leetcode.com/problems/maximal-rectangle">Maximal Rectangle</a></h2> <img src='https://img.shields.io/badge/Difficulty-Hard-red' alt='Difficulty: Hard' /><hr><p>Given a <code>rows x cols</code>&nbsp;binary <code>matrix</code> filled with <code>0</code>&#39;s and <code>1</code>&#39;s, find the largest rectangle containing only <code>1</code>&#39;s and return <em>its area</em>.</p>
 
-## Problem Statement
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/14/maximal.jpg" style="width: 402px; height: 322px;" />
+<pre>
+<strong>Input:</strong> matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> The maximal rectangle is shown in the above picture.
+</pre>
 
-Given a rows x cols binary matrix filled with 0&#39;s and 1&#39;s, find the largest rectangle containing only 1&#39;s and return its area.
+<p><strong class="example">Example 2:</strong></p>
 
-Example 1:
+<pre>
+<strong>Input:</strong> matrix = [[&quot;0&quot;]]
+<strong>Output:</strong> 0
+</pre>
 
-Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
-Output: 6
-Explanation: The maximal rectangle is shown in the above picture.
+<p><strong class="example">Example 3:</strong></p>
 
-Example 2:
+<pre>
+<strong>Input:</strong> matrix = [[&quot;1&quot;]]
+<strong>Output:</strong> 1
+</pre>
 
-Input: matrix = [["0"]]
-Output: 0
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Example 3:
-
-Input: matrix = [["1"]]
-Output: 1
-
-Constraints:
-
-	rows == matrix.length
-	cols == matrix[i].length
-	1 <= row, cols <= 200
-	matrix[i][j] is &#39;0&#39; or &#39;1&#39;.
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Hard*
-
-## LeetCode Link
-
-[85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>rows == matrix.length</code></li>
+	<li><code>cols == matrix[i].length</code></li>
+	<li><code>1 &lt;= rows, cols &lt;= 200</code></li>
+	<li><code>matrix[i][j]</code> is <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
+</ul>
