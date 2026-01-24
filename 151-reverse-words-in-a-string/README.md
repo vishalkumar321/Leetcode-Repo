@@ -1,57 +1,43 @@
-# 151. Reverse Words in a String
+<h2><a href="https://leetcode.com/problems/reverse-words-in-a-string">Reverse Words in a String</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an input string <code>s</code>, reverse the order of the <strong>words</strong>.</p>
 
-## Problem Statement
+<p>A <strong>word</strong> is defined as a sequence of non-space characters. The <strong>words</strong> in <code>s</code> will be separated by at least one space.</p>
 
-Given an input string s, reverse the order of the words.
+<p>Return <em>a string of the words in reverse order concatenated by a single space.</em></p>
 
-A word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.
+<p><b>Note</b> that <code>s</code> may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.</p>
 
-Return a string of the words in reverse order concatenated by a single space.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+<pre>
+<strong>Input:</strong> s = &quot;the sky is blue&quot;
+<strong>Output:</strong> &quot;blue is sky the&quot;
+</pre>
 
-Example 1:
+<p><strong class="example">Example 2:</strong></p>
 
-Input: s = "the sky is blue"
-Output: "blue is sky the"
+<pre>
+<strong>Input:</strong> s = &quot;  hello world  &quot;
+<strong>Output:</strong> &quot;world hello&quot;
+<strong>Explanation:</strong> Your reversed string should not contain leading or trailing spaces.
+</pre>
 
-Example 2:
+<p><strong class="example">Example 3:</strong></p>
 
-Input: s = "  hello world  "
-Output: "world hello"
-Explanation: Your reversed string should not contain leading or trailing spaces.
+<pre>
+<strong>Input:</strong> s = &quot;a good   example&quot;
+<strong>Output:</strong> &quot;example good a&quot;
+<strong>Explanation:</strong> You need to reduce multiple spaces between two words to a single space in the reversed string.
+</pre>
 
-Example 3:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Input: s = "a good   example"
-Output: "example good a"
-Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s</code> contains English letters (upper-case and lower-case), digits, and spaces <code>&#39; &#39;</code>.</li>
+	<li>There is <strong>at least one</strong> word in <code>s</code>.</li>
+</ul>
 
-Constraints:
-
-	1 <= s.length <= 104
-	s contains English letters (upper-case and lower-case), digits, and spaces &#39; &#39;.
-	There is at least one word in s.
-
-Follow-up: If the string data type is mutable in your language, can you solve it in-place with O(1) extra space?
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<p>&nbsp;</p>
+<p><b data-stringify-type="bold">Follow-up:&nbsp;</b>If the string data type is mutable in your language, can&nbsp;you solve it&nbsp;<b data-stringify-type="bold">in-place</b>&nbsp;with&nbsp;<code data-stringify-type="code">O(1)</code>&nbsp;extra space?</p>
