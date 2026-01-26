@@ -5,19 +5,18 @@ public:
         int i = 0;
         int j = n - 1;
         int area = 0;
-        int maxi = 0;
+        int ans = 0;
 
         while (i < j) {
-            area = min(height[j], height[i]) * (j - i);
-            maxi = max(area, maxi);
+            area = min(height[i], height[j]) * (j - i);
+            ans = max(ans, area);
 
-            if (height[i] > height[j]) {
-                j--;
-            } else {
+            if (height[i] < height[j]) {
                 i++;
+            } else {
+                j--;
             }
         }
-
-        return maxi;
+        return ans;
     }
 };
