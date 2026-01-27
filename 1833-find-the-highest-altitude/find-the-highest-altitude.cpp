@@ -1,19 +1,14 @@
-// BRUTE FORCE APPROACH
+// OPTIMAL SOLUTION
 class Solution {
 public:
     int largestAltitude(vector<int>& gain) {
         int n = gain.size();
-        int highAlti = INT_MIN;
+        int prefix = 0;
+        int highAlti = 0;
 
         for (int i = 0; i < n; i++) {
-            int current = 0;
-            for (int j = 0; j <= i; j++) {
-                current += gain[j];
-            }
-            highAlti = max(highAlti, current);
-        }
-        if (highAlti < 0) {
-            return 0;
+            prefix += gain[i];
+            highAlti = max(highAlti, prefix);
         }
         return highAlti;
     }
