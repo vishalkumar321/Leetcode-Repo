@@ -1,54 +1,47 @@
-# 735. Asteroid Collision
+<h2><a href="https://leetcode.com/problems/asteroid-collision">Asteroid Collision</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>We are given an array <code>asteroids</code> of integers representing asteroids in a row. The indices of the asteroid in the array represent their relative position in space.</p>
 
-## Problem Statement
+<p>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</p>
 
-We are given an array asteroids of integers representing asteroids in a row. The indices of the asteriod in the array represent their relative position in space.
+<p>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</p>
 
-For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.
+<pre>
+<strong>Input:</strong> asteroids = [5,10,-5]
+<strong>Output:</strong> [5,10]
+<strong>Explanation:</strong> The 10 and -5 collide resulting in 10. The 5 and 10 never collide.
+</pre>
 
-Example 1:
+<p><strong class="example">Example 2:</strong></p>
 
-Input: asteroids = [5,10,-5]
-Output: [5,10]
-Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.
+<pre>
+<strong>Input:</strong> asteroids = [8,-8]
+<strong>Output:</strong> []
+<strong>Explanation:</strong> The 8 and -8 collide exploding each other.
+</pre>
 
-Example 2:
+<p><strong class="example">Example 3:</strong></p>
 
-Input: asteroids = [8,-8]
-Output: []
-Explanation: The 8 and -8 collide exploding each other.
+<pre>
+<strong>Input:</strong> asteroids = [10,2,-5]
+<strong>Output:</strong> [10]
+<strong>Explanation:</strong> The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10.
+</pre>
 
-Example 3:
+<p><strong class="example">Example 4:</strong></p>
 
-Input: asteroids = [10,2,-5]
-Output: [10]
-Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10.
+<pre>
+<strong>Input:</strong> asteroids = [3,5,-6,2,-1,4]​​​​​​​
+<strong>Output:</strong> [-6,2,4]
+<strong>Explanation:</strong> The asteroid -6 makes the asteroid 3 and 5 explode, and then continues going left. On the other side, the asteroid 2 makes the asteroid -1 explode and then continues going right, without reaching asteroid 4.
+</pre>
 
-Constraints:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-	2 <= asteroids.length <= 104
-	-1000 <= asteroids[i] <= 1000
-	asteroids[i] != 0
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[735. Asteroid Collision](https://leetcode.com/problems/asteroid-collision/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>2 &lt;= asteroids.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= asteroids[i] &lt;= 1000</code></li>
+	<li><code>asteroids[i] != 0</code></li>
+</ul>
