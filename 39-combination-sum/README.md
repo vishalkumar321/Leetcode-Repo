@@ -1,56 +1,41 @@
-# 39. Combination Sum
+<h2><a href="https://leetcode.com/problems/combination-sum">Combination Sum</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an array of <strong>distinct</strong> integers <code>candidates</code> and a target integer <code>target</code>, return <em>a list of all <strong>unique combinations</strong> of </em><code>candidates</code><em> where the chosen numbers sum to </em><code>target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</p>
 
-## Problem Statement
+<p>The <strong>same</strong> number may be chosen from <code>candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the <span data-keyword="frequency-array">frequency</span> of at least one of the chosen numbers is different.</p>
 
-Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+<p>The test cases are generated such that the number of unique combinations that sum up to <code>target</code> is less than <code>150</code> combinations for the given input.</p>
 
-The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
-
-Example 1:
-
-Input: candidates = [2,3,6,7], target = 7
-Output: [[2,2,3],[7]]
-Explanation:
+<pre>
+<strong>Input:</strong> candidates = [2,3,6,7], target = 7
+<strong>Output:</strong> [[2,2,3],[7]]
+<strong>Explanation:</strong>
 2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
 7 is a candidate, and 7 = 7.
 These are the only two combinations.
+</pre>
 
-Example 2:
+<p><strong class="example">Example 2:</strong></p>
 
-Input: candidates = [2,3,5], target = 8
-Output: [[2,2,2,2],[2,3,3],[3,5]]
+<pre>
+<strong>Input:</strong> candidates = [2,3,5], target = 8
+<strong>Output:</strong> [[2,2,2,2],[2,3,3],[3,5]]
+</pre>
 
-Example 3:
+<p><strong class="example">Example 3:</strong></p>
 
-Input: candidates = [2], target = 1
-Output: []
+<pre>
+<strong>Input:</strong> candidates = [2], target = 1
+<strong>Output:</strong> []
+</pre>
 
-Constraints:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-	1 <= candidates.length <= 30
-	2 <= candidates[i] <= 40
-	All elements of candidates are distinct.
-	1 <= target <= 40
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[39. Combination Sum](https://leetcode.com/problems/combination-sum/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>1 &lt;= candidates.length &lt;= 30</code></li>
+	<li><code>2 &lt;= candidates[i] &lt;= 40</code></li>
+	<li>All elements of <code>candidates</code> are <strong>distinct</strong>.</li>
+	<li><code>1 &lt;= target &lt;= 40</code></li>
+</ul>
