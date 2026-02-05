@@ -1,28 +1,26 @@
 class Solution {
 public:
-    void solve(int k, int n, int start, int sum, vector<int>& combination,
-               vector<vector<int>>& ans) {
-
-        if (sum == n && combination.size() == k) {
-            ans.push_back(combination);
+    void backTrack(vector<vector<int>>& ans, vector<int>& current, int index, int sum, int k, int n){
+        if(current.size()==k && sum==n){
+            ans.push_back(current);
             return;
         }
-        if (sum > n || combination.size() > k) {
+        if(current.size()>k || sum>n){
             return;
         }
 
-        for (int i = start; i <= 9; i++) {
-            combination.push_back(i);
-            solve(k, n, i + 1, sum + i, combination, ans);
-            combination.pop_back();
+        for(int i=index; i<=9; i++){
+            current.push_back(i);
+            backTrack(ans, current, i+1,sum+i, k, n);
+            current.pop_back();
         }
     }
 
     vector<vector<int>> combinationSum3(int k, int n) {
-        vector<int> combination;
         vector<vector<int>> ans;
+        vector<int>current;
 
-        solve(k, n, 1, 0, combination, ans);
+        backTrack(ans, current, 1, 0, k, n);
         return ans;
     }
 };
