@@ -1,23 +1,5 @@
 class Solution {
 public:
-    int minSum(int i, int j, int n, vector<vector<int>>& triangle,
-               vector<vector<int>>& dp) {
-
-        if (i == n - 1) {
-            return triangle[i][j];
-        }
-
-        if (dp[i][j] != 1e9) {
-            return dp[i][j];
-        }
-
-        int down = triangle[i][j] + minSum(i + 1, j, n, triangle, dp);
-        int downRight = triangle[i][j] + minSum(i + 1, j + 1, n, triangle, dp);
-
-        dp[i][j] = min(down, downRight);
-        return dp[i][j];
-    }
-
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size();
         vector<vector<int>> dp(n);
@@ -26,6 +8,18 @@ public:
             dp[i] = vector<int>(i + 1, 1e9);
         }
 
-        return minSum(0, 0, n, triangle, dp);
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {
+                if (i == n - 1) {
+                    dp[i][j] = triangle[i][j];
+                } else {
+                    int downLeft = triangle[i][j] + dp[i + 1][j];
+                    int downRight = triangle[i][j] + dp[i + 1][j + 1];
+
+                    dp[i][j] = min(downLeft, downRight);
+                }
+            }
+        }
+        return dp[0][0];
     }
 };
