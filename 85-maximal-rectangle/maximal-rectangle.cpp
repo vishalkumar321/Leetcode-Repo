@@ -1,25 +1,48 @@
 class Solution {
 public:
-    int maximalRectangle(vector<vector<char>>& matrix) {
-        int m = matrix.size();
-        if (m == 0)
-            return 0;
-        int n = matrix[0].size();
-        vector<vector<int>> dp(m, vector<int>(n, 0));
+    int largestRectangleArea(vector<int>& heights) {
+        stack<int> st;
+        int n = heights.size();
         int ans = 0;
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (matrix[i][j] == '1') {
-                    dp[i][j] = (j == 0 ? 1 : dp[i][j - 1] + 1);
-                    int width = dp[i][j];
-                    for (int k = i; k >= 0; k--) {
-                        width = min(width, dp[k][j]);
-                        ans = max(ans, width * (i - k + 1));
-                    }
-                }
+        for (int i = 0; i <= n; i++) {
+            int curr = (i == n ? 0 : heights[i]);
+
+            while (!st.empty() && heights[st.top()] >= curr) {
+                int h = heights[st.top()];
+                st.pop();
+
+                int right = i;
+                int left = st.empty() ? -1 : st.top();
+
+                ans = max(ans, h * (right - left - 1));
             }
+
+            st.push(i);
         }
+
+        return ans;
+    }
+
+    int maximalRectangle(vector<vector<char>>& matrix) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+
+        vector<int> height(m, 0);
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] == '1')
+                    height[j]++;
+                else
+                    height[j] = 0;
+            }
+
+            ans = max(ans, largestRectangleArea(height));
+        }
+
         return ans;
     }
 };
