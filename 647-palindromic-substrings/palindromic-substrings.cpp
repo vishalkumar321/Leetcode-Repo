@@ -1,29 +1,27 @@
 class Solution {
 public:
-    bool palindrome(string s) {
-        int i = 0;
-        int j = s.size() - 1;
+    int countPalindrome(string& s, int low, int high) {
+        int ans = 0;
+        int n = s.size();
 
-        while (i < j) {
-            if (s[i] != s[j]) {
-                return false;
+        while (low >= 0 && high < n) {
+            if (s[low] != s[high]) {
+                break;
             }
-            i++, j--;
+            low--;
+            high++;
+            ans++;
         }
-        return true;
+        return ans;
     }
 
     int countSubstrings(string s) {
-        int n = s.size();
-        int countPalindrome = 0;
+        int ans = 0;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-                if (palindrome(s.substr(i, j - i + 1))) {
-                    countPalindrome++;
-                }
-            }
+        for (int i = 0; i < s.size(); i++) {
+            ans += countPalindrome(s, i, i);
+            ans += countPalindrome(s, i, i + 1);
         }
-        return countPalindrome;
+        return ans;
     }
 };
