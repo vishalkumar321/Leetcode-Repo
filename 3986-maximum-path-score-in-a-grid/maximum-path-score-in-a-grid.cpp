@@ -17,11 +17,15 @@ public:
             return dp[i][j][k];
         }
 
-        int up = grid[i][j] + solve(i - 1, j, grid, k - cost, dp);
-        int left = grid[i][j] + solve(i, j - 1, grid, k - cost, dp);
+        int up = solve(i - 1, j, grid, k - cost, dp);
+        int left = solve(i, j - 1, grid, k - cost, dp);
 
-        dp[i][j][k] = max(up, left);
-        return dp[i][j][k];
+        int bestPath = max(up, left);
+        
+        if (bestPath == INT_MIN) {
+            return dp[i][j][k] = INT_MIN;
+        }
+        return dp[i][j][k] = bestPath + grid[i][j];
     }
 
     int maxPathScore(vector<vector<int>>& grid, int k) {
