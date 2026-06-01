@@ -1,41 +1,28 @@
 class Solution {
 public:
-    bool isSafe(vector<vector<char>>& board, int row, int col, char dig) {
-
-        for (int j = 0; j < 9; j++) {
-            if (j != col && board[row][j] == dig) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < 9; i++) {
-            if (i != row && board[i][col] == dig) {
-                return false;
-            }
-        }
-
-        int startRow = (row / 3) * 3;
-        int startCol = (col / 3) * 3;
-
-        for (int i = startRow; i <= startRow + 2; i++) {
-            for (int j = startCol; j <= startCol + 2; j++) {
-                if ((i != row || j != col) && board[i][j] == dig) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
     bool isValidSudoku(vector<vector<char>>& board) {
+        unordered_set<string> seen;
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (board[i][j] != '.') {
-                    if (!isSafe(board, i, j, board[i][j])) {
-                        return false;
-                    }
+                if (board[i][j] == '.') {
+                    continue;
                 }
+
+                string num(1, board[i][j]);
+
+                string row = num + "belongs to row" + to_string(i);
+                string col = num + "belongs to col" + to_string(j);
+                string box = num + "belongs to box" + to_string(i / 3) + "-" +
+                             to_string(j / 3);
+
+                if (seen.count(row) || seen.count(col) || seen.count(box)) {
+                    return false;
+                }
+
+                seen.insert(row);
+                seen.insert(col);
+                seen.insert(box);
             }
         }
         return true;
