@@ -1,54 +1,39 @@
-# 127. Word Ladder
+<h2><a href="https://leetcode.com/problems/word-ladder">Word Ladder</a></h2> <img src='https://img.shields.io/badge/Difficulty-Hard-red' alt='Difficulty: Hard' /><hr><p>A <strong>transformation sequence</strong> from word <code>beginWord</code> to word <code>endWord</code> using a dictionary <code>wordList</code> is a sequence of words <code>beginWord -&gt; s<sub>1</sub> -&gt; s<sub>2</sub> -&gt; ... -&gt; s<sub>k</sub></code> such that:</p>
 
-## Problem Statement
+<ul>
+	<li>Every adjacent pair of words differs by a single letter.</li>
+	<li>Every <code>s<sub>i</sub></code> for <code>1 &lt;= i &lt;= k</code> is in <code>wordList</code>. Note that <code>beginWord</code> does not need to be in <code>wordList</code>.</li>
+	<li><code>s<sub>k</sub> == endWord</code></li>
+</ul>
 
-A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that:
+<p>Given two words, <code>beginWord</code> and <code>endWord</code>, and a dictionary <code>wordList</code>, return <em>the <strong>number of words</strong> in the <strong>shortest transformation sequence</strong> from</em> <code>beginWord</code> <em>to</em> <code>endWord</code><em>, or </em><code>0</code><em> if no such sequence exists.</em></p>
 
-	Every adjacent pair of words differs by a single letter.
-	Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
-	sk == endWord
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
+<pre>
+<strong>Input:</strong> beginWord = &quot;hit&quot;, endWord = &quot;cog&quot;, wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> One shortest transformation sequence is &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; cog&quot;, which is 5 words long.
+</pre>
 
-Example 1:
+<p><strong class="example">Example 2:</strong></p>
 
-Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
-Output: 5
-Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
+<pre>
+<strong>Input:</strong> beginWord = &quot;hit&quot;, endWord = &quot;cog&quot;, wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> The endWord &quot;cog&quot; is not in wordList, therefore there is no valid transformation sequence.
+</pre>
 
-Example 2:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
-Output: 0
-Explanation: The endWord "cog" is not in wordList, therefore there is no valid transformation sequence.
-
-Constraints:
-
-	1 <= beginWord.length <= 10
-	endWord.length == beginWord.length
-	1 <= wordList.length <= 5000
-	wordList[i].length == beginWord.length
-	beginWord, endWord, and wordList[i] consist of lowercase English letters.
-	beginWord != endWord
-	All the words in wordList are unique.
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Hard*
-
-## LeetCode Link
-
-[127. Word Ladder](https://leetcode.com/problems/word-ladder/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>1 &lt;= beginWord.length &lt;= 10</code></li>
+	<li><code>endWord.length == beginWord.length</code></li>
+	<li><code>1 &lt;= wordList.length &lt;= 5000</code></li>
+	<li><code>wordList[i].length == beginWord.length</code></li>
+	<li><code>beginWord</code>, <code>endWord</code>, and <code>wordList[i]</code> consist of lowercase English letters.</li>
+	<li><code>beginWord != endWord</code></li>
+	<li>All the words in <code>wordList</code> are <strong>unique</strong>.</li>
+</ul>
