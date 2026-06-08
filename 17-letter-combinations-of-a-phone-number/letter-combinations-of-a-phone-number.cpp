@@ -1,32 +1,28 @@
 class Solution {
 public:
-    void backTrack(vector<string>& ans, string current, int index,
-                   string mapping[], string digit) {
-        if (digit.empty())
-            return;
-        if (index >= digit.length()) {
-            ans.push_back(current);
+    void helper(int i, string digit, string curr, string combination[],
+                vector<string>& ans) {
+
+        if (i == digit.size()) {
+            ans.push_back(curr);
             return;
         }
 
-        int number = digit[index] - '0';
-        string value = mapping[number];
+        int number = digit[i] - '0';
+        string value = combination[number];
 
-        for (int i = 0; i < value.length(); i++) {
-            current.push_back(value[i]);
-            backTrack(ans, current, index + 1, mapping, digit);
-            current.pop_back();
+        for (int j = 0; j < value.size(); j++) {
+            curr.push_back(value[j]);
+            helper(i + 1, digit, curr, combination, ans);
+            curr.pop_back();
         }
     }
-
     vector<string> letterCombinations(string digits) {
+
+        string combination[10] = {"",    "",    "abc",  "def", "ghi",
+                                  "jkl", "mno", "pqrs", "tuv", "wxyz"};
         vector<string> ans;
-        string current = "";
-
-        string mapping[10] = {"",    "",    "abc",  "def", "ghi",
-                              "jkl", "mno", "pqrs", "tuv", "wxyz"};
-
-        backTrack(ans, current, 0, mapping, digits);
+        helper(0, digits, "", combination, ans);
         return ans;
     }
 };
