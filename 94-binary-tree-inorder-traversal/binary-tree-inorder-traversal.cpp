@@ -6,31 +6,30 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
-//  MORRIS INORDER TRAVERSAL
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> inorder;
         TreeNode* curr = root;
-        while(curr){
-            if(curr->left == NULL){
+
+        while (curr) {
+            if (curr->left == NULL) {
                 inorder.push_back(curr->val);
                 curr = curr->right;
-            }
-            else{
-                TreeNode* prev = curr->left;
-                while(prev->right && prev->right!=curr){
-                    prev = prev->right;
+            } else {
+                TreeNode* next = curr->left;
+                while (next->right && next->right != curr) {
+                    next = next->right;
                 }
-                if(prev->right == NULL){
-                    prev->right = curr;
+                if (next->right == NULL) {
+                    next->right = curr;
                     curr = curr->left;
-                }
-                else{
-                    prev->right = NULL;
+                } else {
+                    next->right = NULL;
                     inorder.push_back(curr->val);
                     curr = curr->right;
                 }
