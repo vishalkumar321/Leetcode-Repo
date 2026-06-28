@@ -4,7 +4,6 @@ public:
 
         int n = grid.size();
         int m = grid[0].size();
-        int totalTime = 0;
 
         queue<pair<pair<int, int>, int>> q;
         vector<vector<bool>> visited(n, vector<bool>(m, false));
@@ -18,24 +17,26 @@ public:
             }
         }
 
-        int dRow[] = {-1, 0, 1, 0};
-        int dCol[] = {0, 1, 0, -1};
-
+        int minute = 0;
         while (!q.empty()) {
             int row = q.front().first.first;
             int col = q.front().first.second;
-            int time = q.front().second;
-            totalTime = max(totalTime, time);
+            int step = q.front().second;
             q.pop();
 
+            minute = max(step, minute);
+
+            int delRow[4] = {-1, 0, 1, 0};
+            int delCol[4] = {0, -1, 0, 1};
+
             for (int i = 0; i < 4; i++) {
-                int nrow = row + dRow[i];
-                int ncol = col + dCol[i];
+                int nrow = row + delRow[i];
+                int ncol = col + delCol[i];
 
                 if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m &&
-                    !visited[nrow][ncol] && grid[nrow][ncol] == 1) {
-                    q.push({{nrow, ncol}, time + 1});
+                    grid[nrow][ncol] == 1 && !visited[nrow][ncol]) {
                     visited[nrow][ncol] = true;
+                    q.push({{nrow, ncol}, step + 1});
                 }
             }
         }
@@ -47,6 +48,6 @@ public:
                 }
             }
         }
-        return totalTime;
+        return minute;
     }
 };
