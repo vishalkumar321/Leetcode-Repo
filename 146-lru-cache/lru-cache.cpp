@@ -8,33 +8,32 @@ public:
         Node(int k, int v) {
             key = k;
             val = v;
-            prev = next = NULL;
         }
     };
 
     Node* head = new Node(-1, -1);
     Node* tail = new Node(-1, -1);
 
-    unordered_map<int, Node*> mp;
-    int limit;
-
     void addNode(Node* node) {
         Node* nextNode = head->next;
 
-        head->next = node;
         node->next = nextNode;
+        head->next = node;
 
-        nextNode->prev = node;
         node->prev = head;
+        nextNode->prev = node;
     }
 
     void delNode(Node* node) {
-        Node* prevNode = node->prev;
         Node* nextNode = node->next;
+        Node* prevNode = node->prev;
 
         prevNode->next = nextNode;
         nextNode->prev = prevNode;
     }
+
+    int limit;
+    unordered_map<int, Node*> mp;
 
     LRUCache(int capacity) {
         limit = capacity;
@@ -62,11 +61,11 @@ public:
     void put(int key, int value) {
         if (mp.find(key) != mp.end()) {
             Node* node = mp[key];
-            delNode(node);
             mp.erase(key);
+            delNode(node);
         }
 
-        if (mp.size() == limit) {
+        if (limit == mp.size()) {
             mp.erase(tail->prev->key);
             delNode(tail->prev);
         }
