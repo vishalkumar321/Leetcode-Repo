@@ -1,48 +1,94 @@
+class DisjointSet {
+public:
+    vector<int> parent, rank, size;
+    // Constructor: Initialize parent, rank, and size
+    DisjointSet(int n) {
+        parent.resize(n + 1);
+        rank.resize(n + 1, 0);
+        size.resize(n + 1, 1);
+        for (int i = 0; i <= n; i++) {
+            parent[i] = i;
+        }
+    }
+
+    // Find parent with path compression
+    int findParent(int node) {
+        if (node == parent[node])
+            return node;
+        return parent[node] = findParent(parent[node]);
+    }
+
+    // Check if two nodes belong to the same set
+    bool find(int u, int v) { return findParent(u) == findParent(v); }
+
+    // Union by Rank
+    void unionByRank(int u, int v) {
+        int pu = findParent(u);
+        int pv = findParent(v);
+        if (pu == pv)
+            return;
+
+        if (rank[pv] < rank[pu]) {
+            parent[pv] = pu;
+        } else if (rank[pv] > rank[pu]) {
+            parent[pu] = pv;
+        } else {
+            parent[pu] = pv;
+            rank[pv]++;
+        }
+    }
+
+    // Union by Size
+    void unionBySize(int u, int v) {
+        int pu = findParent(u);
+        int pv = findParent(v);
+        if (pu == pv)
+            return;
+
+        if (size[pu] < size[pv]) {
+            parent[pu] = pv;
+            size[pv] += size[pu];
+        } else {
+            parent[pv] = pu;
+            size[pu] += size[pv];
+        }
+    }
+};
+
 class Solution {
 public:
     int countCompleteComponents(int n, vector<vector<int>>& edges) {
 
-        vector<vector<int>> adj(n);
+        DisjointSet ds(n);
 
-        for (auto& it : edges) {
-            int u = it[0];
-            int v = it[1];
-            adj[u].push_back(v);
-            adj[v].push_back(u);
+        for (auto& e : edges) {
+            ds.unionBySize(e[0], e[1]);
         }
 
-        queue<int> q;
-        vector<bool> visited(n, false);
+        unordered_map<int, int> nodes;
 
-        int comp = 0;
         for (int i = 0; i < n; i++) {
-            if (!visited[i]) {
-                int nodes = 0;
-                int edgeCount = 0;
+            nodes[ds.findParent(i)]++;
+        }
 
-                visited[i] = true;
-                q.push(i);
+        unordered_map<int, int> edgeCnt;
 
-                while (!q.empty()) {
-                    auto node = q.front();
-                    q.pop();
+        for (auto& e : edges) {
+            int p = ds.findParent(e[0]);
+            edgeCnt[p]++;
+        }
 
-                    nodes++;
-                    edgeCount += adj[node].size();
+        int ans = 0;
 
-                    for (auto it : adj[node]) {
-                        if (!visited[it]) {
-                            visited[it] = true;
-                            q.push(it);
-                        }
-                    }
-                }
-                edgeCount /= 2;
-                if (edgeCount == nodes * (nodes - 1) / 2) {
-                    comp++;
-                }
+        for (auto& it : nodes) {
+            int parent = it.first;
+            int vertex = it.second;
+            int edgePresent = edgeCnt[parent];
+
+            if (edgePresent == (vertex * (vertex - 1)) / 2) {
+                ans++;
             }
         }
-        return comp;
+        return ans;
     }
 };
