@@ -1,56 +1,41 @@
-# 15. 3Sum
+<h2><a href="https://leetcode.com/problems/3sum">3Sum</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
 
-## Problem Statement
+<p>Notice that the solution set must not contain duplicate triplets.</p>
 
-Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-Notice that the solution set must not contain duplicate triplets.
-
-Example 1:
-
-Input: nums = [-1,0,1,2,-1,-4]
-Output: [[-1,-1,2],[-1,0,1]]
-Explanation: 
+<pre>
+<strong>Input:</strong> nums = [-1,0,1,2,-1,-4]
+<strong>Output:</strong> [[-1,-1,2],[-1,0,1]]
+<strong>Explanation:</strong> 
 nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
 nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
 nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
 The distinct triplets are [-1,0,1] and [-1,-1,2].
 Notice that the order of the output and the order of the triplets does not matter.
+</pre>
 
-Example 2:
+<p><strong class="example">Example 2:</strong></p>
 
-Input: nums = [0,1,1]
-Output: []
-Explanation: The only possible triplet does not sum up to 0.
+<pre>
+<strong>Input:</strong> nums = [0,1,1]
+<strong>Output:</strong> []
+<strong>Explanation:</strong> The only possible triplet does not sum up to 0.
+</pre>
 
-Example 3:
+<p><strong class="example">Example 3:</strong></p>
 
-Input: nums = [0,0,0]
-Output: [[0,0,0]]
-Explanation: The only possible triplet sums up to 0.
+<pre>
+<strong>Input:</strong> nums = [0,0,0]
+<strong>Output:</strong> [[0,0,0]]
+<strong>Explanation:</strong> The only possible triplet sums up to 0.
+</pre>
 
-Constraints:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-	3 <= nums.length <= 3000
-	-105 <= nums[i] <= 105
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[15. 3Sum](https://leetcode.com/problems/3sum/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>3 &lt;= nums.length &lt;= 3000</code></li>
+	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+</ul>
