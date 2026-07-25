@@ -1,49 +1,117 @@
 class Solution {
-public:
-    multiset<int> left, right;
+private:
+    priority_queue<int> small;
+    priority_queue<int, vector<int>, greater<int>> large;
+
+    unordered_map<int, int> delayed;
+
+    int smallSize = 0;
+    int largeSize = 0;
+
+    void pruneSmall() {
+        while (!small.empty()) {
+            int x = small.top();
+
+            if (!delayed.count(x))
+                break;
+
+            delayed[x]--;
+
+            if (delayed[x] == 0)
+                delayed.erase(x);
+
+            small.pop();
+        }
+    }
+
+    void pruneLarge() {
+        while (!large.empty()) {
+            int x = large.top();
+
+            if (!delayed.count(x))
+                break;
+
+            delayed[x]--;
+
+            if (delayed[x] == 0)
+                delayed.erase(x);
+
+            large.pop();
+        }
+    }
 
     void balance() {
-        
-        while (left.size() > right.size() + 1) {
-            auto it = prev(left.end()); 
-            right.insert(*it);
-            left.erase(it);
+
+        if (smallSize > largeSize + 1) {
+
+            large.push(small.top());
+            small.pop();
+
+            smallSize--;
+            largeSize++;
+
+            pruneSmall();
         }
 
-        while (left.size() < right.size()) {
-            auto it = right.begin(); 
-            left.insert(*it);
-            right.erase(it);
+        else if (smallSize < largeSize) {
+
+            small.push(large.top());
+            large.pop();
+
+            largeSize--;
+            smallSize++;
+
+            pruneLarge();
         }
     }
 
-    void insert(int x) {
-        if (left.empty() || x <= *prev(left.end()))
-            left.insert(x);
-        else
-            right.insert(x);
+    void insert(int num) {
+
+        if (small.empty() || num <= small.top()) {
+            small.push(num);
+            smallSize++;
+        }
+
+        else {
+            large.push(num);
+            largeSize++;
+        }
 
         balance();
     }
 
-    void remove(int x) {
-        auto it = left.find(x);
+    void erase(int num) {
 
-        if (it != left.end())
-            left.erase(it);
-        else
-            right.erase(right.find(x));
+        delayed[num]++;
+
+        if (num <= small.top()) {
+
+            smallSize--;
+
+            if (num == small.top())
+                pruneSmall();
+        }
+
+        else {
+
+            largeSize--;
+
+            if (!large.empty() && num == large.top())
+                pruneLarge();
+        }
 
         balance();
     }
 
-    double median(int k) {
+    double getMedian(int k) {
+
         if (k % 2)
-            return (double)(*prev(left.end()));
+            return small.top();
 
-        return ((double)(*prev(left.end())) + (double)(*right.begin())) / 2.0;
+        return ((double)small.top() + (double)large.top()) / 2.0;
     }
 
+public:
     vector<double> medianSlidingWindow(vector<int>& nums, int k) {
 
         vector<double> ans;
@@ -51,12 +119,15 @@ public:
         for (int i = 0; i < k; i++)
             insert(nums[i]);
 
-        ans.push_back(median(k));
+        ans.push_back(getMedian(k));
 
         for (int i = k; i < nums.size(); i++) {
-            remove(nums[i - k]);
+
+            erase(nums[i - k]);
+
             insert(nums[i]);
-            ans.push_back(median(k));
+
+            ans.push_back(getMedian(k));
         }
 
         return ans;
