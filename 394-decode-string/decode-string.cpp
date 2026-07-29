@@ -3,7 +3,7 @@ public:
     string decodeString(string s) {
         stack<string> st;
 
-        for (char it : s) {
+        for (auto& it : s) {
             if (it == ']') {
                 string curr = "";
                 while (st.top() != "[") {
@@ -19,22 +19,22 @@ public:
                 }
 
                 int k = stoi(num);
-                string decoded = "";
-                while (k--)
-                    decoded += curr;
 
+                string decoded = "";
+                while (k--) {
+                    decoded += curr;
+                }
                 st.push(decoded);
             } else {
                 st.push(string(1, it));
             }
         }
 
-        string ans = "";
+        string result = "";
         while (!st.empty()) {
-            ans = st.top() + ans;
+            result = st.top() + result;
             st.pop();
         }
-
-        return ans;
+        return result;
     }
 };
