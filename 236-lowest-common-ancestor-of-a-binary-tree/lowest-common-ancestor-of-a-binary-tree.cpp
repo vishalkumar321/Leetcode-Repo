@@ -17,14 +17,14 @@ public:
             return root;
         }
 
-        TreeNode* leftLCA = lowestCommonAncestor(root->left, p, q);
-        TreeNode* rightLCA = lowestCommonAncestor(root->right, p, q);
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
 
-        if (leftLCA && rightLCA) {
+        if (left && right) {
             return root;
-        } else if (leftLCA != NULL) {
-            return leftLCA;
-        }
-        return rightLCA;
+        } else if (left != NULL) {
+            return left;
+        } else
+            return right;
     }
 };
