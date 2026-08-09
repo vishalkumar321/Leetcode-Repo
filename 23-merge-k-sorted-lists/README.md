@@ -1,60 +1,45 @@
-# 23. Merge k Sorted Lists
+<h2><a href="https://leetcode.com/problems/merge-k-sorted-lists">Merge k Sorted Lists</a></h2> <img src='https://img.shields.io/badge/Difficulty-Hard-red' alt='Difficulty: Hard' /><hr><p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>
 
-## Problem Statement
+<p><em>Merge all the linked-lists into one sorted linked-list and return it.</em></p>
 
-You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-Merge all the linked-lists into one sorted linked-list and return it.
-
-Example 1:
-
-Input: lists = [[1,4,5],[1,3,4],[2,6]]
-Output: [1,1,2,3,4,4,5,6]
-Explanation: The linked-lists are:
+<pre>
+<strong>Input:</strong> lists = [[1,4,5],[1,3,4],[2,6]]
+<strong>Output:</strong> [1,1,2,3,4,4,5,6]
+<strong>Explanation:</strong> The linked-lists are:
 [
-  1->4->5,
-  1->3->4,
-  2->6
+  1-&gt;4-&gt;5,
+  1-&gt;3-&gt;4,
+  2-&gt;6
 ]
 merging them into one sorted linked list:
-1->1->2->3->4->4->5->6
+1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
+</pre>
 
-Example 2:
+<p><strong class="example">Example 2:</strong></p>
 
-Input: lists = []
-Output: []
+<pre>
+<strong>Input:</strong> lists = []
+<strong>Output:</strong> []
+</pre>
 
-Example 3:
+<p><strong class="example">Example 3:</strong></p>
 
-Input: lists = [[]]
-Output: []
+<pre>
+<strong>Input:</strong> lists = [[]]
+<strong>Output:</strong> []
+</pre>
 
-Constraints:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-	k == lists.length
-	0 <= k <= 104
-	0 <= lists[i].length <= 500
-	-104 <= lists[i][j] <= 104
-	lists[i] is sorted in ascending order.
-	The sum of lists[i].length will not exceed 104.
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Hard*
-
-## LeetCode Link
-
-[23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>k == lists.length</code></li>
+	<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= lists[i].length &lt;= 500</code></li>
+	<li><code>-10<sup>4</sup> &lt;= lists[i][j] &lt;= 10<sup>4</sup></code></li>
+	<li><code>lists[i]</code> is sorted in <strong>ascending order</strong>.</li>
+	<li>The sum of <code>lists[i].length</code> will not exceed <code>10<sup>4</sup></code>.</li>
+</ul>
