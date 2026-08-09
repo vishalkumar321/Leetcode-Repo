@@ -2,35 +2,49 @@ class Solution {
 public:
     vector<vector<int>> getSkyline(vector<vector<int>>& buildings) {
 
-        set<int> xSet;
-
-        for (auto& b : buildings) {
-            xSet.insert(b[0]);
-            xSet.insert(b[1]);
-        }
-
-        vector<int> xs(xSet.begin(), xSet.end());
-
         vector<vector<int>> ans;
-        int prevHeight = 0;
 
-        for (int x : xs) {
+        // {height, right}
+        priority_queue<pair<int, int>> pq;
 
-            int currHeight = 0;
+        int i = 0;
+        int n = buildings.size();
 
-            for (auto& b : buildings) {
-                int left = b[0];
-                int right = b[1];
-                int height = b[2];
+        while (i < n || !pq.empty()) {
 
-                if (left <= x && x < right) {
-                    currHeight = max(currHeight, height);
+            int x;
+
+            // Next building starts before the current tallest building ends
+            if (pq.empty() || 
+                (i < n && buildings[i][0] <= pq.top().second)) {
+
+                x = buildings[i][0];
+
+                // Add all buildings starting at x
+                while (i < n && buildings[i][0] == x) {
+                    int left = buildings[i][0];
+                    int right = buildings[i][1];
+                    int height = buildings[i][2];
+
+                    pq.push({height, right});
+                    i++;
+                }
+
+            } else {
+
+                // Current tallest building ends
+                x = pq.top().second;
+
+                // Remove all buildings that ended by x
+                while (!pq.empty() && pq.top().second <= x) {
+                    pq.pop();
                 }
             }
 
-            if (currHeight != prevHeight) {
+            int currHeight = pq.empty() ? 0 : pq.top().first;
+
+            if (ans.empty() || ans.back()[1] != currHeight) {
                 ans.push_back({x, currHeight});
-                prevHeight = currHeight;
             }
         }
 
