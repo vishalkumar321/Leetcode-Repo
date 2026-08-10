@@ -1,20 +1,70 @@
 class Solution {
 public:
-    string longestWord(vector<string>& words) {
-        sort(words.begin(), words.end());
+    struct Node {
+        Node* child[26];
+        bool isEnd;
 
-        string ans = "";
-        unordered_set<string> st;
+        Node() {
+            isEnd = false;
 
-        for (auto& it : words) {
-            if (it.size() == 1 || st.count(it.substr(0, it.length() - 1))) {
-                st.insert(it);
-
-                if (ans.length() < it.length()) {
-                    ans = it;
-                }
+            for (int i = 0; i < 26; i++) {
+                child[i] = nullptr;
             }
         }
+    };
+
+    Node* root = new Node();
+
+    void insert(string& word) {
+
+        Node* curr = root;
+
+        for (char c : word) {
+
+            int index = c - 'a';
+
+            if (curr->child[index] == nullptr) {
+                curr->child[index] = new Node();
+            }
+
+            curr = curr->child[index];
+        }
+
+        curr->isEnd = true;
+    }
+
+    string ans = "";
+
+    void dfs(Node* curr, string& current) {
+
+        if (current.length() > ans.length() ||
+            (current.length() == ans.length() && current < ans)) {
+            ans = current;
+        }
+
+        for (int i = 0; i < 26; i++) {
+
+            if (curr->child[i] != nullptr && curr->child[i]->isEnd) {
+
+                current.push_back('a' + i);
+
+                dfs(curr->child[i], current);
+
+                current.pop_back();
+            }
+        }
+    }
+
+    string longestWord(vector<string>& words) {
+
+        for (string& word : words) {
+            insert(word);
+        }
+
+        string current = "";
+
+        dfs(root, current);
+
         return ans;
     }
 };
