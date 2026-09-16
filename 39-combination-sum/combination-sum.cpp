@@ -1,29 +1,32 @@
 class Solution {
 public:
-    void combination(vector<vector<int>>& ans, vector<int>& arr,
-                     vector<int>& curr, int n, int idx, int target) {
-
-        if (idx == n || target < 0) {
-            return;
-        }
+    void solve(int idx, vector<int>& candidates, int target, vector<int>& curr,
+               vector<vector<int>>& ans) {
 
         if (target == 0) {
             ans.push_back(curr);
             return;
         }
 
-        curr.push_back(arr[idx]);
-
-        combination(ans, arr, curr, n, idx, target - arr[idx]);
+        if (target < 0 || idx < 0) {
+            return;
+        }
+        // not take
+        solve(idx - 1, candidates, target, curr, ans);
+        // take
+        curr.push_back(candidates[idx]);
+        solve(idx, candidates, target - candidates[idx], curr, ans);
         curr.pop_back();
-        combination(ans, arr, curr, n, idx + 1, target);
+    
     }
 
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>> ans;
-        vector<int> curr;
+        int n = candidates.size();
 
-        combination(ans, candidates, curr, candidates.size(), 0, target);
+        vector<int> curr;
+        vector<vector<int>> ans;
+
+        solve(n - 1, candidates, target, curr, ans);
         return ans;
     }
 };
