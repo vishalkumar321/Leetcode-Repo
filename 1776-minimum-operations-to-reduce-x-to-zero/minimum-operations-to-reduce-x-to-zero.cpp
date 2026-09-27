@@ -13,7 +13,7 @@ public:
         for (int right = 0; right < n; right++) {
             currSum += nums[right];
 
-            while (left<n && currSum > target) {
+            while (left <= right && currSum > target) {
                 currSum -= nums[left];
                 left++;
             }
