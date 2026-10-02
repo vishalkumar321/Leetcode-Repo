@@ -1,37 +1,16 @@
-# 22. Generate Parentheses
+<h2><a href="https://leetcode.com/problems/generate-parentheses">Generate Parentheses</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given <code>n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</p>
 
-## Problem Statement
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> n = 3
+<strong>Output:</strong> ["((()))","(()())","(())()","()(())","()()()"]
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> n = 1
+<strong>Output:</strong> ["()"]
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
-
-Example 1:
-Input: n = 3
-Output: ["((()))","(()())","(())()","()(())","()()()"]
-Example 2:
-Input: n = 1
-Output: ["()"]
-
-Constraints:
-
-	1 <= n <= 8
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>1 &lt;= n &lt;= 8</code></li>
+</ul>
