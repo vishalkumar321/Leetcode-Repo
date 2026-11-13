@@ -1,53 +1,36 @@
-# 63. Unique Paths II
+<h2><a href="https://leetcode.com/problems/unique-paths-ii">Unique Paths II</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given an <code>m x n</code> integer array <code>grid</code>. There is a robot initially located at the <b>top-left corner</b> (i.e., <code>grid[0][0]</code>). The robot tries to move to the <strong>bottom-right corner</strong> (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
 
-## Problem Statement
+<p>An obstacle and space are marked as <code>1</code> or <code>0</code> respectively in <code>grid</code>. A path that the robot takes cannot include <strong>any</strong> square that is an obstacle.</p>
 
-You are given an m x n integer array grid. There is a robot initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
+<p>Return <em>the number of possible unique paths that the robot can take to reach the bottom-right corner</em>.</p>
 
-An obstacle and space are marked as 1 or 0 respectively in grid. A path that the robot takes cannot include any square that is an obstacle.
+<p>The testcases are generated so that the answer will be less than or equal to <code>2 * 10<sup>9</sup></code>.</p>
 
-Return the number of possible unique paths that the robot can take to reach the bottom-right corner.
-
-The testcases are generated so that the answer will be less than or equal to 2 * 109.
-
-Example 1:
-
-Input: obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
-Output: 2
-Explanation: There is one obstacle in the middle of the 3x3 grid above.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg" style="width: 242px; height: 242px;" />
+<pre>
+<strong>Input:</strong> obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> There is one obstacle in the middle of the 3x3 grid above.
 There are two ways to reach the bottom-right corner:
-1. Right -> Right -> Down -> Down
-2. Down -> Down -> Right -> Right
+1. Right -&gt; Right -&gt; Down -&gt; Down
+2. Down -&gt; Down -&gt; Right -&gt; Right
+</pre>
 
-Example 2:
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/robot2.jpg" style="width: 162px; height: 162px;" />
+<pre>
+<strong>Input:</strong> obstacleGrid = [[0,1],[0,0]]
+<strong>Output:</strong> 1
+</pre>
 
-Input: obstacleGrid = [[0,1],[0,0]]
-Output: 1
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Constraints:
-
-	m == obstacleGrid.length
-	n == obstacleGrid[i].length
-	1 <= m, n <= 100
-	obstacleGrid[i][j] is 0 or 1.
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>m == obstacleGrid.length</code></li>
+	<li><code>n == obstacleGrid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>obstacleGrid[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+</ul>
