@@ -1,41 +1,20 @@
-# 560. Subarray Sum Equals K
+<h2><a href="https://leetcode.com/problems/subarray-sum-equals-k">Subarray Sum Equals K</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the total number of subarrays whose sum equals to</em> <code>k</code>.</p>
 
-## Problem Statement
+<p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 
-Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [1,1,1], k = 2
+<strong>Output:</strong> 2
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [1,2,3], k = 3
+<strong>Output:</strong> 2
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-A subarray is a contiguous non-empty sequence of elements within an array.
-
-Example 1:
-Input: nums = [1,1,1], k = 2
-Output: 2
-Example 2:
-Input: nums = [1,2,3], k = 3
-Output: 2
-
-Constraints:
-
-	1 <= nums.length <= 2 * 104
-	-1000 <= nums[i] <= 1000
-	-107 <= k <= 107
-
-## Solution
-
-The solution is implemented in C++ and can be found in the `solution.cpp` file.
-
-## Complexity Analysis
-
-- **Time Complexity:** O(?) - Please analyze and update
-- **Space Complexity:** O(?) - Please analyze and update
-
-## Tags
-
-*Medium*
-
-## LeetCode Link
-
-[560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
-
----
-
-*This solution was automatically downloaded from LeetCode.*
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+	<li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li>
+</ul>
